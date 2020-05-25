@@ -1,0 +1,20 @@
+int Solution::threeSumClosest(vector<int> &A, int B) {
+     sort(A.begin(), A.end()); 
+    int result =INT_MAX; 
+    for (int i=0;i<A.size()-2;i++){ 
+        int x=i+1;
+        int z=A.size()-1; 
+        while (x < z) {
+            int sum = A[i]+A[x]+A[z]; 
+            if (abs(1LL*B-sum)<abs(1LL*B-result)) { 
+                result = sum; 
+            } 
+            if (sum>B){ 
+                --z; 
+            } else{ 
+                ++x; 
+            } 
+        } 
+    } 
+    return result;
+}
