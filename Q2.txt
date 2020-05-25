@@ -1,0 +1,20 @@
+int Solution::braces(string A) {
+    stack<char> stk; 
+    for (auto& chr : A) { 
+        if (chr == ')') { 
+            char t = stk.top(); 
+            stk.pop(); 
+            int f = 1;
+            while (t != '(') { 
+                if (t == '*' || t == '/' ||t == '+' || t == '-') 
+                    f = 0; 
+                t = stk.top(); 
+                stk.pop(); 
+            } 
+            if (f == 1) 
+                return true; 
+        } else
+            stk.push(chr);  
+    } 
+    return 0; 
+}
